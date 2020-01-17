@@ -19,6 +19,7 @@ ul {
 }
 
 .square {
+  position: relative;
   background: #fff;
   border: 1px solid #999;
   float: left;
@@ -26,11 +27,90 @@ ul {
   font-weight: bold;
   line-height: 34px;
   height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
+  margin: -1px;
   padding: 0;
   text-align: center;
   width: 34px;
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #999;
+}
+
+.content:before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: #f00;
+  transform-origin: center;
+  z-index: 10;
+}
+
+.content.left_bias:before,
+.content.right_bias:before {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  margin-top: -1px;
+}
+
+.content.left_bias:before {
+  transform: rotateZ(45deg) scale(2);
+}
+
+.content.right_bias:before {
+  transform: rotateZ(-45deg) scale(2);
+}
+
+.content.horizontal:before {
+  left: 0;
+  right: 0;
+  height: 2px;
+}
+
+.content.horizontal.hor1:before {
+  top: 16px;
+}
+
+.content.horizontal.hor2:before {
+  top: 50%;
+  margin-top: -1px;
+}
+
+.content.horizontal.hor3:before {
+  bottom: 16px;
+}
+
+.content.vertical:before {
+  top: 0;
+  bottom: 0;
+  width: 2px;
+}
+
+.content.vertical.ver1:before {
+  left: 16px;
+}
+
+.content.vertical.ver2:before {
+  left: 50%;
+  margin-left: -1px;
+}
+
+.content.vertical.ver3:before {
+  right: 16px;
+}
+
+.content.right_bias:before {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  margin-top: -1px;
+  transform: rotateZ(-45deg) scale(2);
 }
 
 .square:focus {
